@@ -1,4 +1,5 @@
 from modulo_tkinter import *
+from tkinter import messagebox
 
 def cerrar_ventana_padre():
     ventana_padre.destroy() # Eliminando la ventana padre definitivamente
@@ -14,7 +15,18 @@ def volver_ventana_padre_de_registrarse():
     ventana_padre.iconify() # Regresando ventana padre
 
 
+def comprobar_correo_electronico_password():
+    if (correo_electronico.get() == "xyxyxy27.79@gmail.com") and (contraseña.get() == "enrique"):
+        ventana_informe()
+    else:
+        messagebox.showwarning(message="Error en la entrada de datos")
+
 def ventana_inicio_sesion():
+
+    global correo_electronico
+    correo_electronico = StringVar()
+    global contraseña
+    contraseña = StringVar()
 
     ventana_padre.withdraw() #Escondiendo la ventana padre
 
@@ -24,15 +36,15 @@ def ventana_inicio_sesion():
 
     e1_login = crear_etiqueta(v_login,"Correo electrónico")
     e1_login.place(x=80,y=115)
-    i1_login = crear_entrada(v_login)
-    i1_login.place(x=80, y=140)
+    i1_login_correo = crear_entrada(v_login,correo_electronico)
+    i1_login_correo.place(x=80, y=140)
 
     e2_login = crear_etiqueta(v_login,"Contraseña")
     e2_login.place(x=80, y=200)
-    i2_login = crear_entrada(v_login)
-    i2_login.place(x=80, y=225)
+    i2_login_contra = crear_entrada(v_login,contraseña)
+    i2_login_contra.place(x=80, y=225)
 
-    b1_login = crear_boton(v_login, "Iniciar Sesión",ventana_informe)
+    b1_login = crear_boton(v_login, "Iniciar Sesión",comprobar_correo_electronico_password)
     b1_login.place(x=110, y=290)
 
     # Pendiente crear un boton y funcion para volver ventana padre ->(HECHO)
