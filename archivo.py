@@ -42,13 +42,15 @@ def ventana_inicio_sesion():
     e2_login = crear_etiqueta(v_login,"Contraseña")
     e2_login.place(x=80, y=200)
     i2_login_contra = crear_entrada(v_login,contraseña)
+    i2_login_contra.config(show="*") # mostrando asteriscos en la entrada de la constraseña
     i2_login_contra.place(x=80, y=225)
 
     b1_login = crear_boton(v_login, "Iniciar Sesión",comprobar_correo_electronico_password)
     b1_login.place(x=110, y=290)
 
     # Pendiente crear un boton y funcion para volver ventana padre ->(HECHO)
-    b2_login = crear_boton(v_login,"Volver",volver_ventana_padre_de_login).place(x=140,y=340)
+    b2_login = crear_boton(v_login,"Volver",volver_ventana_padre_de_login)
+    b2_login.place(x=140,y=340)
     v_login.mainloop()
 
 
@@ -65,7 +67,8 @@ def ventana_registrarse():
     e2_registrar = crear_etiqueta(v_registrar,"Apellidos").place(x=20,y=135)
     i2_registrar = crear_entrada(v_registrar).place(x=20, y=160)
     e3_registrar = crear_etiqueta(v_registrar,"Correo Electrónico").place(x=20,y=200)
-    i3_registrar = crear_entrada(v_registrar).place(x=20, y=225)
+    i3_registrar = crear_entrada(v_registrar) # Manera correcta de pasar todos los metodos de la funcion a entrada(i3_registrar)
+    i3_registrar.place(x=20,y=225)
     e4_registrar = crear_etiqueta(v_registrar,"Contraseña").place(x=20,y=265)
     i4_registrar = crear_entrada(v_registrar).place(x=20, y=290)
 

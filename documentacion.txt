@@ -1,0 +1,48 @@
+clase messagebox
+
+1. Preguntar:
+
+    messagebox.askquestion("Cerrar",message="¿Estas Seguro?")
+
+2. Mostrar informacion:
+
+    messagebox.showinfo("Version",message="Verion1.0")
+
+3. Atencion:
+
+    messagebox.showwarning("Atencion",message="contraseña incorrecta")
+
+4. Error:
+
+    messagebox.showerror("ERROR CRITICO",message="Se encontro un error")
+
+=========================================================================================================================
+
+"""
+Codigo ejemplo de combobox
+"""
+
+from tkinter import *
+from tkinter import ttk # importante para hacer uso del widget Combobox
+
+def obtener():
+#	combo.get() # devuelve la opcion que elijas en el combobox pero en String
+	opcion = int(combo.get())
+	texto.set(f"Edad: {opcion}")
+
+
+
+ventana = Tk()
+ventana.geometry("300x300")
+texto = StringVar()
+texto.set("Edad: ")
+
+combo = ttk.Combobox(ventana,values=("15","16","17","18","19","20","21"))
+combo.place(x=50,y=100)
+combo.current(3)
+
+boton = Button(ventana,command=obtener,text="Calcular").place(x=80,y=150)
+etiqueta = Label(ventana,textvariable=texto).place(x=40,y=200)
+
+ventana.mainloop()
+#combo["values"] = ("1","2","3")

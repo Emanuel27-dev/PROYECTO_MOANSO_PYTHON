@@ -34,8 +34,12 @@ def crear_etiqueta(ventana,texto):
 
 def crear_entrada(ventana,variable=None):
 
+    # entrada inactiva => state="disable"
+    # textvariable para StringVar()
+    # variable para IntVar()
     entrada = Entry(ventana,textvariable=variable)
     entrada.config(bd=5,font=("Terminal 12 bold"))
+
     return entrada
 
 
